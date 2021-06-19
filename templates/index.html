@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">   
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script
+      src="https://kit.fontawesome.com/6d75087f93.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>CHD Prediction</title>
+  </head>
+  <body>
+    <form action="{{ url_for('predict')}}" method="post" class="form" id="submit">
+      <div class="title">Welcome</div>
+      <div class="subtitle">Let's check your health</div>
+      <div class="input-container ic1">
+        <input
+          id="age"
+          class="input"
+          type="number"
+          name="age"
+          placeholder=" "
+          required="required"
+        />
+        <div class="cut cut-short"></div>
+        <label for="age" class="place">Age</label>
+      </div>
+      <div class="input-container ic2">
+        <input
+          id="totalCholestrol"
+          class="input"
+          type="number"
+          name="totChol"
+          placeholder=" "
+          required="required"
+        />
+        <div class="cut cut-long1"></div>
+        <label for="totalCholestrol" class="place">Total Cholestrol</label>
+      </div>
+      <div class="input-container ic2">
+        <input
+          id="systolicBP"
+          class="input"
+          type="number"
+          name="sysBP"
+          placeholder=" "
+          required="required"
+        />
+        <div class="cut cut-long"></div>
+        <label for="systolicBP" class="place">Systolic BP</label>
+      </div>
+      <div class="input-container ic2">
+        <input
+          id="diastolicBP"
+          class="input"
+          type="number"
+          name="diaBP"
+          placeholder=" "
+          required="required"
+        />
+        <div class="cut cut-long"></div>
+        <label for="diastolicBP" class="place">Diastolic BP</label>
+      </div>
+      <div class="input-container ic2">
+        <input
+          id="BMI"
+          class="input"
+          type="number"
+          name="BMI"
+          placeholder=" "
+          required="required"
+        />
+        <div class="cut cut-short"></div>
+        <label for="BMI" class="place">B.M.I</label>
+      </div>
+      <div class="input-container ic2">
+        <input
+          id="heartRate"
+          class="input"
+          type="number"
+          name="heartRate"
+          placeholder=" "
+          required="required"
+        />
+        <div class="cut cut-long"></div>
+        <label for="heartRate" class="place">Heart Rate</label>
+      </div>
+      <div class="input-container ic2">
+        <input
+          id="glucose"
+          class="input"
+          type="number"
+          name="glucose"
+          placeholder=" "
+          required="required"
+        />
+        <div class="cut"></div>
+        <label for="glucose" class="place">Glucose</label>
+      </div>
+      <input type="submit" value="predict" class="submit" />
+      <div id="results">
+        {{ prediction_text }}
+      </div>
+      <input type="reset" value="predict again" class="reset" />
+      <!-- <button type="number" id="submit" class="submit">predict</button> -->
+    </form>
+    <div id="loading">
+      <h3>Datas Submitted Successfully!!!!!</h3>
+      <p>Getting your Results</p>
+      <br /><br />
+      <i class="fas fa-spinner fa-8x"></i>
+    </div>
+
+    <script type=text/javascript src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>
